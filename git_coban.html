@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cau lenh Git co ban</title>
+</head>
+
+<body>
+    <!--
+        Các câu lệnh Git cơ bản thường dùng 
+1. Git init
+    Khởi tạo mọt repository local để bắt đầu uản lý dự án với git bạn improt folder dự án vào Visual Studio Code sau đó thực hiện lệnh terminal.
+      git init
+    Sau cau lệnh này dự án của bạn đã bắt đầu được kích haotj dám sát và quản lý bởi git.
+2. Git Clone
+    Git clone là một lệnh để tải xuống mã nguồn hiện có từ một Remote Repository đã có sẵn rên internet như Github Page.
+    Nói chi tiết hơn git clone là cách thức giúp bạn có thể tải xuống phiên bản mới nhất của dự án từ Github về máy tính của bạn.
+
+    git clone https://name-of-the-repository-link
+3. Git branch
+    Branch(nhánh) là một khái niệm rất quan trọng trong Git. Bằng việc sử dụng branch, các nhà lập trình có thể tham gia làm việc song song để xây dựng dự án một cách đồng thời mà không bị xung đột.
+
+    Chúng ta có thể sử dụng các câu lệnh bên dưới để xem danh sách, thêm và xóa một branch.
+
+    Hiển thị danh sách branch:
+
+    Để kiếm tra danh sách branch đang tồn tại và để biết hiện tại đang làm việc trên branch nào bạn sử dụng lệnh.
+
+    git branch 
+    Tạo ra một branch mới:
+
+    git branch <branch-name>
+    Câu lệnh này giúp tạo ra một branch ở trên local repository, để đẩy một branch mới lên remote repository như Github bạn sử dụng lệnh bên dưới.
+
+    git push -u <remote> <branch-name>
+    Xóa một branch:
+
+    git branch -d <branch name>
+4. Git checkout
+    Đây cũng là câu lệnh được sử dụng thường xuyên trong Git. Để làm việc tại một branch trước hết bạn cần chuyển sang branch đó. Chúng ta sử dụng git checkout để chuyển từ làm việc ở branch này sang một branch khác một cách tiện lợi.
+
+    Git checkout <branch name>
+    Có một lưu ý bạn cần đảm bảo để quá trình chuyển nhánh được thành công
+
+    Các thay đổi ở branch hiện tại bạn cần phải được commit trước khi chuyển sang nhánh khác.
+    Nhánh bạn muốn checkout cần phải tồn tại trên git của bạn
+    Có một cậu lệnh khác giúp bạn vừa tạo ra một branch sau đó checkout vào branch đó.
+
+    git checkout -b <name-of-your-branch>
+    5. Git status
+    Câu lệnh Git status cho bạn biết những thông tin cần thiết về một branch hiện tại.
+
+    git status
+    Bạn có thể xem các thông tin như
+
+    Tình trạng tạo, cập nhật, xóa file
+    Trạng thái commit, push, pull
+…
+6. Git add
+    Khi bạn tạo, cập nhật hoặc xóa file, những hành động đó nó chỉ có tác dụng ở trên local, nó không được commit trong lần tiết theo.
+
+Chúng ta cần sử dụng lệnh Git add để chọn ra một hoặc nhiều file được commit vào git trong lần tiếp theo của chúng ta.
+
+git add <file>
+Ngoài ra chúng ta có thể sử dụng câu lệnh bên dưới để chọn tất cả các file cho lần commit tiếp theo.
+
+git add .
+Trong trường hợp bạn muốn hủy quá trình lựa chọn file commit bạn sử dụng lệnh
+
+git reset
+Lưu ý rằng đây là bước chọn ra tài nguyên cần lưu vào local repository, nó sẽ không được lưu vào cho đến khi thực hiện commit.
+
+7. Git commit
+Đây có lẽ là câu lệnh được sử dụng nhiều nhất trong Git, khi dự án đã đạt được xây dựng đến một giai đoạn nhất định, chúng ta muốn lưu phiên bản đó vào Git.
+
+Git commit để lưu lại là một phiên bản dự án và đặc biệt trong tương lai bạn có thể quay trở lại phiên bản đó nếu cần.
+
+git commit -m 'Ghi chú quá trình dự án'
+Bạn cũng cần ghi lại một đoạn ghi chú về quá trình phát triển dự án hoặc những thay đổi trong phiên bản hiện tại. Sau này khi đọc lại thông tin những commit bạn sẽ biết được tại lần commit nhất định đã phát triển tới đâu trong dự án.
+
+Một lưu ý quá trình commit dự án chỉ được lưu trữ ở trên local repository.
+
+Một dự án sẽ có nhiều lần commit với những phiên bản khác nhau, để check lại những lần commit trước đó bạn sử dụng lệnh.
+
+git log
+Bạn có thể dụng lệnh bên dưới để hiển thị danh sách các phiên bản được commit dạng rút gọn
+
+git log --oneline
+Có một điều thú vị, mỗi lần commit đều được lưu lại hiện trạng của dự án tại thời điểm đó. Mỗi commint sẽ có mỗi id và bạn có thể dựa vào id commit để có thể quay trở lại phiên bản dự án ở lần commit nhất định.
+
+git checkout {id commit}
+8. Git Push
+Sau khi thực hiện các thay đổi của bạn thông qua commit, bước tiếp theo bạn cần cập nhật nó trên Remote Repository Github.
+
+git remote add <alias> https://name-of-the-repository-link
+git push <remote> <branch-name>
+Quan trọng: Git push chỉ tải lên những thay đổi đã được commit ở local repository.
+
+9. Git pull
+Ngược với Git push, git pull được sử dụng để đẩy nhận các bản cập nhật dự án từ remote repo như github. Câu lệnh này là sự kết hợp giữa git fetch và git merge.
+
+Ngay khi git pull được thực thi nó sẽ nhận các bản cập nhật từ remote repo (git fetch) và ngay lập tức áp dụng các thay đổi mới nhất trong local repo(git merge).
+
+git pull <remote>
+Thao tác này có thể xảy ra xung đột(conflict), bạn có thể cần xử lý nó thủ công trước khi lưu bản cập nhật.
+
+10. Git revert
+Đôi khi bạn cần khôi phục lại những lần commit trước đó đã thực hiện, nhưng bạn phải thật cẩn thận để quá trình khôi phục này không dẫn đến xóa những file dự án không mong muốn.
+
+Để thực hiện khôi phục những lần đã commit bạn sử dụng lệnh Git crevert. Để xem lịch sử commit bạn sử dụng lệnh.
+
+git log --oneline
+Mỗi commit sẽ được lưu lại với mỗi id commit nhất định. Để khôi phục dự án đến một commit nhất định bạn sử dụng lệnh.
+
+git revert <id commit>
+Một điều đặc biệt ở đây, khi sử dụng git revert không làm mất lịch sử commit trước đó. Có nghĩa là chúng ta có thể quay trở lại với bất kỳ phiên bản commit nào mà ta muốn.
+
+11. Git merge
+Khi nhiệm vụ đã được hoàn thành trên branch của bạn, việc tiếp theo bạn cần hợp nhất nó với branch cha. Điều này được thực hiện bởi lệnh git merge.
+
+Git merge về cơ bản là thao tác cập nhật tất cả các commit ở nhánh của bạn vào nhánh cha như master hoặc dev. Một điều cần lưu ý trước khi thực hiện quá trình hợp nhất bạn cần checkout qua branch cha.
+
+Ví dụ bạn muốn chuyển từ một branch bất kỳ vào dev branch.
+
+Đầu tiên bạn chuyển sang dev branch
+
+git checkout dev
+Trước khi hợp nhất bạn nên cập nhật trạng thái của dev branch.
+
+git fetch
+Cuối cùng bạn thực hiện hợp nhất một branch cụ thể vào dev branch.
+
+git merge <branch-name>
+    -->
+</body>
+
+</html>
